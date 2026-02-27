@@ -10,7 +10,7 @@ st.set_page_config(page_title="HM Passivation Dashboard", layout="wide", initial
 @st.cache_resource
 def load_model():
     try:
-        return joblib.load("D:/Python/GUI/rf_model.pkl")
+        return joblib.load("rf_model.pkl")
     except Exception:
         return None
 
@@ -118,4 +118,5 @@ with right_col:
         # 修复了这里的警告
         st.plotly_chart(fig, use_container_width=True) # 注意：Plotly 目前依然推荐这个用法，如果依然报错，后续我们可以删掉这个参数
     else:
+
         st.error("Model Error: rf_model.pkl not found.")
